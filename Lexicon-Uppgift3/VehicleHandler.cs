@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lexicon_Uppgift3.Helpers;
+using Lexicon_Uppgift3.Vehicles;
 
 namespace Lexicon_Uppgift3
 {
@@ -12,9 +14,23 @@ namespace Lexicon_Uppgift3
 
         static public List<Vehicle> VehicleList { get { return vehicleList; } }
 
-        static public void CreateVehicle(string inputBrand, string inputModel, int inputYear, double inputWeight)
+        static public void CreateVehicle()
         {
-                VehicleList.Add(new Vehicle(inputBrand, inputModel, inputYear, inputWeight));
+            Vehicle newVehicle = new Vehicle();
+
+            Console.Write("Enter the brand of your vehicle: ");
+            newVehicle.Brand = Utilities.StringInput();
+
+            Console.Write("Enter the model of your vehicle: ");
+            newVehicle.Model = Utilities.StringInput();
+
+            Console.Write("Enter the year of your vehicle: ");
+            newVehicle.Year = Utilities.NumberInput();
+
+            Console.Write("Enter the weight of your vehicle: ");
+            newVehicle.Weight = Utilities.DoubleInput();
+
+            VehicleList.Add(newVehicle);
         }
 
         static public void ChangeBrand(Vehicle inputVehicle, string newBrand)
@@ -38,11 +54,19 @@ namespace Lexicon_Uppgift3
         }
 
         static public void PrintVehicleList()
-        {
-            foreach(Vehicle vehicle in vehicleList)
+        {   
+            if(vehicleList.Count < 1)
             {
-                Console.WriteLine(vehicle.ToString());
+                Console.WriteLine("No vehicles introduced yet.");
             }
+            else
+            {
+                foreach (Vehicle vehicle in vehicleList)
+                {
+                    Console.WriteLine(vehicle.ToString());
+                }
+            }
+                
         }
     }
 }

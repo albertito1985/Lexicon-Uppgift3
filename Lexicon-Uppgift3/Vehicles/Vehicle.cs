@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lexicon_Uppgift3
+namespace Lexicon_Uppgift3.Vehicles
 {
-    public class Vehicle
+    public abstract class Vehicle
     {
         private string brand;
         private string model;
@@ -57,16 +57,9 @@ namespace Lexicon_Uppgift3
             get { return weight; }
             set 
             { 
-                    if (value > 0) weight = value;
-                    else throw new ArgumentException($"Bad Input. Weight needs to be a possitive value.");                
+                if (value > 0) weight = value;
+                else throw new ArgumentException($"Bad Input. Weight needs to be a possitive value.");                
             }
-        }
-        public Vehicle(string inputBrand, string inputModel, int inputYear, double inputWeight)
-        {
-            Brand = inputBrand;
-            Model = inputModel;
-            Year = inputYear;
-            Weight = inputWeight;
         }
 
         private bool Validation2_20char(string input)
@@ -84,6 +77,16 @@ namespace Lexicon_Uppgift3
         public override string ToString()
         {
             return $"{brand} {model} {year} {weight} Kg";
+        }
+
+        public string StartEngine()
+        {
+            return "";
+        }
+
+        public string Stats()
+        {
+            return "";
         }
     }
 
