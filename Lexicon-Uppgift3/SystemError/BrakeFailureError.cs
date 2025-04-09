@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Lexicon_Uppgift3.SystemError
 {
-    public class EngineFailure : SystemError
+    public class BrakeFailureError : SystemError
     {
         public override void ErrorMessage()
         {
-            Console.WriteLine("Engine error. Stop the car and call the mechanic.");
+            Console.WriteLine("Brake error. Decrease the speed of the car until it stops. Then apply the parking break.");
         }
     }
 }
