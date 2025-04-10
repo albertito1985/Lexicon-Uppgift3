@@ -4,38 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lexicon_Uppgift3.Helpers;
+using Lexicon_Uppgift3.Menus;
 
 namespace Lexicon_Uppgift3.Menu
 {
-    static public class DelIMenu
+    public static class DelIMenu
     {
-        static public List<MenuOption> menuOptions = new List<MenuOption> {
+        public static List<MenuOption> menuOptions = new List<MenuOption> {
             new MenuOption ("Exit", HandleExit),
-            new MenuOption ("Enter Car", HandleEnterCar),
-            new MenuOption ("Show Car List", HandleShowCarList),
+            new MenuOption ("Enter Vehicle", HandleEnterVehicle),
+            new MenuOption ("Show Vehicle List", HandleShowVehicleList),
         };
 
-        static public bool HandleExit()
+        public static bool HandleExit()
         {
             return true;
         }
 
-        static public bool HandleEnterCar()
+        public static bool HandleEnterVehicle()
         {
-            Console.WriteLine("\nEnter new car\n------------------");
+            Console.WriteLine("\nEnter new vehicle\n------------------");
             VehicleHandler.CreateVehicle();
             Console.Write(Environment.NewLine);
             return false;
         }
 
-        static public bool HandleShowCarList()
+        public static bool HandleShowVehicleList()
         {
-            Console.WriteLine("\nCars list\n------------------");
+            Console.WriteLine("\nVehicle list\n------------------");
             VehicleHandler.PrintVehicleList();
             Console.Write(Environment.NewLine);
-            Console.Write("Press any key to continue.");
-            Console.ReadLine();
-            
+            Utilities.PressAnyKeyToContinue();
             return false;
         }
     }

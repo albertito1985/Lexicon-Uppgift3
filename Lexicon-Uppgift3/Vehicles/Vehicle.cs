@@ -61,7 +61,17 @@ namespace Lexicon_Uppgift3.Vehicles
                 else throw new ArgumentException($"Bad Input. Weight needs to be a possitive value.");                
             }
         }
+        public Vehicle()
+        {
 
+        }
+        public Vehicle(string inputBrand, string inputModel,int inputYear, double inputWeight)
+        {
+            Brand = inputBrand;
+            Model = inputModel;
+            Year = inputYear;
+            Weight = inputWeight;
+        }
         private bool Validation2_20char(string input)
         {
             if (input.Length < 2 || input.Length > 20) {
@@ -79,15 +89,9 @@ namespace Lexicon_Uppgift3.Vehicles
             return $"{brand} {model} {year} {weight} Kg";
         }
 
-        public string StartEngine()
-        {
-            return "";
-        }
+        public abstract string StartEngine();
 
-        public string Stats()
-        {
-            return "";
-        }
+        public abstract string Stats();
     }
 
     

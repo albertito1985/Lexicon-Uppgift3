@@ -36,15 +36,20 @@
         {
             string input = Console.ReadLine();
 
-            if (Double.TryParse(input, out Double result))
+            if (double.TryParse(input, out double result))
             {
                 return result;
             }
             else
             {
-                throw new ArgumentException("Write the input with decimals ex 100.865.");
+                throw new ArgumentException("Write the input with decimals ex 100,865 (with a coma).");
             }
-            return -1;
+        }
+
+        public static void PressAnyKeyToContinue()
+        {
+            Console.Write("Press any key to continue.");
+            Console.ReadLine();
         }
     }
 }

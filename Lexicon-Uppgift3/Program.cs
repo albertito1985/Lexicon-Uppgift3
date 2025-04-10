@@ -1,6 +1,7 @@
 ﻿using Lexicon_Uppgift3.Helpers;
 using Lexicon_Uppgift3.Menu;
 using Lexicon_Uppgift3.SystemError;
+using Lexicon_Uppgift3.Menus;
 
 namespace Lexicon_Uppgift3;
 
@@ -9,14 +10,13 @@ internal class Program
     static void Main(string[] args)
     {
         //Del 1
-        MenuHelper mainMenu = new MenuHelper("MAIN MENU",MainMenu.menuOptions);
         bool exit = false;
         do
         {
             try
             {
-                mainMenu.ShowMenu();
-                exit = mainMenu.ValidateAndExecuteOption(mainMenu.PromptOptionChoice());
+                AvailableMenus.mainMenu.ShowMenu();
+                exit = AvailableMenus.mainMenu.ValidateAndExecuteOption(AvailableMenus.mainMenu.PromptOptionChoice());
             }
             catch (ArgumentException ex)
             {

@@ -16,7 +16,43 @@ namespace Lexicon_Uppgift3
 
         static public void CreateVehicle()
         {
-            Vehicle newVehicle = new Vehicle();
+            bool validated = false;
+            Vehicle newVehicle;
+            do
+            {
+                Console.Write("Which type of vehicle do you want to introduce?\n" +
+                "1. Car\n" +
+                "2. Electric Scooter\n" +
+                "3. Motorcycle\n" +
+                "4. Truck\n" +
+                "Choose an alternative: ");
+                int choice = Utilities.NumberInput();
+
+                switch (choice)
+                {
+                    case 1:
+                        newVehicle = new Car();
+                        validated = true;
+                        break;
+                    case 2:
+                        newVehicle = new ElectricScooter();
+                        validated = true;
+                        break;
+                    case 3:
+                        newVehicle = new Motorcycle();
+                        validated = true;
+                        break;
+                    case 4:
+                        newVehicle = new Truck();
+                        validated = true;
+                        break;
+                    default:
+                        throw new ArgumentException("Enter a valid number.");
+                        break;
+                }
+
+            } while (!validated);
+            
 
             Console.Write("Enter the brand of your vehicle: ");
             newVehicle.Brand = Utilities.StringInput();

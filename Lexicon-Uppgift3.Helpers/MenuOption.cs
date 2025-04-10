@@ -8,7 +8,6 @@ namespace Lexicon_Uppgift3.Helpers
 {
     public class MenuOption
     {
-        //private int inputCount = 0;
         public delegate bool HandlerFunction();
 
         public static int InputCount { get; set; } = 0;
